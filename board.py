@@ -8,7 +8,7 @@ from buttons import button_class
 class board_class:
     def __init__(self, board_list, window, screen_surface):
         # variables, objects, and lists 
-        self.turn = "r" # "r" for red, "b" for black
+        self.turn = "b" # "r" for red, "b" for black
         self.current_piece = '' # pos of current piece user is "holding" if they are holding one
         self.buttons = [] # list of all buttons 
         self.board_list = board_list # the list representing the board 
