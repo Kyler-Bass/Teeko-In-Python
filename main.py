@@ -23,6 +23,7 @@ def main():
   gameRunning = True
   gameover_screen = True
   start_menu_running = True
+  instructions_running = True
   board_list = [
             ["","","","",""],
             ["","","","",""],
@@ -41,6 +42,7 @@ def main():
             gameRunning = False
             gameover_screen = False
             start_menu_running = False
+            instructions_running = False
         
         mouse_pos = pg.mouse.get_pos()
         mouse_pressed = pg.mouse.get_pressed()
@@ -51,9 +53,30 @@ def main():
 
         window.update()
 
-
-  # prevents clicking the middle button in the same instant as the screen switches to the gameboard
+  
+  # prevents clicking the button in the same instant as the screen switches to the gameboard
   time.sleep(0.2)
+  
+  # instructions menu
+  while instructions_running:
+        if exit_event_check():
+            gameRunning = False
+            gameover_screen = False
+            start_menu_running = False
+            instructions_running = False
+
+        mouse_pressed = pg.mouse.get_pressed()
+        board_obj.graphics.instructions_menu()
+
+        if mouse_pressed[0]:
+            instructions_running = False
+
+        window.update()
+
+
+  # prevent accidental button clicking 
+  time.sleep(0.2)
+
 
   # gameloop 
   while gameRunning:

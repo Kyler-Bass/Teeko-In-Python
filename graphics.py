@@ -11,6 +11,7 @@ class graphics_handler:
     self.black_cir_image = pg.image.load('images/blackCircle.png').convert_alpha()
     self.start_bg = pg.image.load("images/start_bg.png").convert()
     self.start_button = pg.image.load("images/start_button.png").convert_alpha()
+    self.instructions = pg.image.load("images/instructions.png").convert()
 
     # start menu objects # 
     self.start_button_rect = pg.Rect(330, 380, 130, 60) # hitbox for start button
@@ -137,3 +138,7 @@ class graphics_handler:
 
     if self.start_button_rect.collidepoint(mouse_pos) and mouse_pressed[0]:
       return True
+    
+  def instructions_menu(self):
+    self.main_screen_surface.blit(self.instructions, (0,0))
+
