@@ -12,6 +12,9 @@ class graphics_handler:
     self.start_bg = pg.image.load("images/start_bg.png").convert()
     self.start_button = pg.image.load("images/start_button.png").convert_alpha()
     self.instructions = pg.image.load("images/instructions.png").convert()
+    self.highlight_button = pg.image.load("images/highlight.png").convert_alpha()
+    self.black_turn = pg.image.load("images/black_turn.png").convert_alpha()
+    self.red_turn = pg.image.load("images/red_turn.png").convert_alpha()
 
     # start menu objects # 
     self.start_button_rect = pg.Rect(330, 380, 130, 60) # hitbox for start button
@@ -43,11 +46,16 @@ class graphics_handler:
     self.points_degrees = [25,20,15,10,5,30,0,25,20,15,10,5,205,200,195,190,185,210,180,205,200,195,190,185]
 
 
-  def display(self, board: list[list[str]]):
+  def display(self, board: list[list[str]], turn):
     """display the gameboard to the window, input the list representing the board"""
 
     # add background board to screen
     self.main_screen_surface.blit(self.board_image, (0, 0))
+    
+    if turn == "r":
+      self.main_screen_surface.blit(self.red_turn, (720,50))
+    elif turn == "b":
+      self.main_screen_surface.blit(self.black_turn, (720,50))
 
     # board size = 800x800 px
     # button size = 140x140 px
@@ -60,6 +68,8 @@ class graphics_handler:
           self.main_screen_surface.blit(self.black_cir_image,(x * self.button_size + self.offset, y * self.button_size + self.offset))
         elif char == "r":
           self.main_screen_surface.blit(self.red_cir_image,(x * self.button_size + self.offset, y * self.button_size + self.offset))
+        elif char == "h":
+          self.main_screen_surface.blit(self.highlight_button,(x * self.button_size + self.offset, y * self.button_size + self.offset))
 
   def gameover(self, winner:str): 
     """Screen displayed when game is over, pass in the winner"""

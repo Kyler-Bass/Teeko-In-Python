@@ -89,7 +89,7 @@ def main():
            winner = "black"
 
     # display board to user 
-    board_obj.graphics.display(board_obj.board_list)
+    board_obj.graphics.display(board_obj.board_list, board_obj.turn)
 
     # check if the user clicked and grab the mouse position
     mouse_pressed = pg.mouse.get_pressed()
