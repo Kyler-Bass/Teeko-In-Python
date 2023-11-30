@@ -32,9 +32,10 @@ class board_class:
                 self.board_list[button.pos[0]][button.pos[1]] = self.turn
                 self.pieces_on_board += 1 
                 self.next_turn()  
-            # clicked on a piece that is not empty, pick it up 
+            # clicked on a piece that is not empty, pick it up if it is that turn
             elif try_put == -1:
-                self.current_piece = button
+                if button.state == self.turn:
+                    self.current_piece = button
             # clicked on a piece that is empty, put piece down or do nothing
             elif try_put == 1:
                 if self.current_piece != '':
