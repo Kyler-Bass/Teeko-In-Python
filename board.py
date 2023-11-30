@@ -63,11 +63,14 @@ class board_class:
         # 2 = black wins
 
 
+        # testing
+        print(black_pieces)
+
         # black pieces win checks
         if len(black_pieces) < 4: # see if there are even 4 pieces, if not exit function 
             return 0
         # horizontal win - 4 in a row
-        if black_pieces[0][0] == black_pieces[1][0] == black_pieces[2][0] == black_pieces[3][0] and black_pieces[0][1] + 1 == black_pieces[1][1] and black_pieces[1][1] + 1 == black_pieces[2][1] and black_pieces[2][1] + 1 == black_pieces[3][1] and black_pieces[3][1] + 1 == black_pieces[4][1]: 
+        if black_pieces[0][0] == black_pieces[1][0] == black_pieces[2][0] == black_pieces[3][0] and black_pieces[0][1] + 1 == black_pieces[1][1] and black_pieces[1][1] + 1 == black_pieces[2][1] and black_pieces[2][1] + 1 == black_pieces[3][1]: 
             return 2
         # vertical win - 4 in a column
         elif black_pieces[0][1] == black_pieces[1][1] == black_pieces[2][1] == black_pieces[3][1]:
@@ -76,7 +79,7 @@ class board_class:
         elif black_pieces[0][0] == black_pieces[1][0] and black_pieces[0][0] + 1 == black_pieces[2][0] and black_pieces[0][0] + 1 == black_pieces[3][0] and black_pieces[0][1] == black_pieces[2][1] and black_pieces[1][1] == black_pieces[3][1]:
             return 2
         # left to right diagonal win
-        elif black_pieces[0][0] == black_pieces[1][0] - 1 == black_pieces[2][0] - 2 == black_pieces[3][0] - 3 and black_pieces[0][1] == black_pieces[0][1] - 1 == black_pieces[0][2] - 2 == black_pieces[0][3] - 3:
+        elif black_pieces[0][0] == black_pieces[1][0] - 1 == black_pieces[2][0] - 2 == black_pieces[3][0] - 3 and black_pieces[0][1] == black_pieces[1][1] - 1 == black_pieces[2][1] - 2 == black_pieces[3][1] - 3:
             return 2
         # right to left diagonal win
         elif black_pieces[0][0] == black_pieces[1][0] - 1 == black_pieces[2][0] - 2 == black_pieces[3][0] - 3 and black_pieces[0][1] == black_pieces[1][1] + 1 == black_pieces[2][1] + 2 == black_pieces[3][1] + 3:
@@ -93,7 +96,7 @@ class board_class:
         # vertical win - 4 in a column
         elif red_pieces[0][1] == red_pieces[1][1] == red_pieces[2][1] == red_pieces[3][1]:
             return 1
-        # square win ['','','r','r',''],['','','r','r',''] 
+        # square win 
         elif red_pieces[0][0] == red_pieces[1][0] and red_pieces[0][0] + 1 == red_pieces[2][0] and red_pieces[0][0] + 1 == red_pieces[3][0] and red_pieces[0][1] == red_pieces[2][1] and red_pieces[1][1] == red_pieces[3][1]:
             return 1
         # left to right diagonal win

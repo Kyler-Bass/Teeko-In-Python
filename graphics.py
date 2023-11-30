@@ -1,5 +1,5 @@
 import pygame as pg
-import os
+import math
 
 class graphics_handler:
 
@@ -39,6 +39,9 @@ class graphics_handler:
     self.current_bounce_lower = 100
     self.max_width_lower = 0
 
+    # for circle animation
+    self.points_degrees = [25,20,15,10,5,30,0,25,20,15,10,5,205,200,195,190,185,210,180,205,200,195,190,185]
+
 
   def display(self, board: list[list[str]]):
     """display the gameboard to the window, input the list representing the board"""
@@ -57,12 +60,7 @@ class graphics_handler:
           self.main_screen_surface.blit(self.black_cir_image,(x * self.button_size + self.offset, y * self.button_size + self.offset))
         elif char == "r":
           self.main_screen_surface.blit(self.red_cir_image,(x * self.button_size + self.offset, y * self.button_size + self.offset))
-        elif char == "":
-          pass
-        else:
-          pass
 
-  
   def gameover(self, winner:str): 
     """Screen displayed when game is over, pass in the winner"""
 
@@ -117,6 +115,20 @@ class graphics_handler:
         self.lowerbounce = False
         self.current_bounce_lower = 100
 
+    
+    # circle spiral animation 
+    points1,points2 = self.get_points()
+    
+    if winner == "red":
+      circle_color = (255,0,0)
+      circle_border = 0
+    else:
+      circle_color = (255,255,255)
+      circle_border = 3
+
+    # the circling shapes 
+    pg.draw.polygon(self.main_screen_surface, color=circle_color, points=points1, width=circle_border)
+    pg.draw.polygon(self.main_screen_surface, color=circle_color, points=points2, width=circle_border)
 
     # text
     if self.text == None:
@@ -142,3 +154,136 @@ class graphics_handler:
   def instructions_menu(self):
     self.main_screen_surface.blit(self.instructions, (0,0))
 
+  def get_points(self):
+
+    # inner circle
+    inner_radius = 195
+    iX1,iY1 = math.cos(math.radians(self.points_degrees[0])), math.sin(math.radians(self.points_degrees[0]))
+    iX2,iY2 = math.cos(math.radians(self.points_degrees[1])), math.sin(math.radians(self.points_degrees[1]))
+    iX3,iY3 = math.cos(math.radians(self.points_degrees[2])), math.sin(math.radians(self.points_degrees[2]))
+    iX4,iY4 = math.cos(math.radians(self.points_degrees[3])), math.sin(math.radians(self.points_degrees[3]))
+    iX5,iY5 = math.cos(math.radians(self.points_degrees[4])), math.sin(math.radians(self.points_degrees[4]))
+
+    iX1 *= inner_radius
+    iY1 *= inner_radius
+    iX2 *= inner_radius
+    iY2 *= inner_radius
+    iX3 *= inner_radius
+    iY3 *= inner_radius
+    iX4 *= inner_radius
+    iY4 *= inner_radius
+    iX5 *= inner_radius
+    iY5 *= inner_radius
+    inner1 = [iX1 + 400,iY1 + 400]
+    inner2 = [iX2 + 400,iY2 + 400]
+    inner3 = [iX3 + 400,iY3 + 400]
+    inner4 = [iX4 + 400,iY4 + 400]
+    inner5 = [iX5 + 400,iY5 + 400]
+
+    # middle circle
+    middle_radius = 200
+    mX1,mY1 = math.cos(math.radians(self.points_degrees[5])), math.sin(math.radians(self.points_degrees[5]))
+    mX2,mY2 = math.cos(math.radians(self.points_degrees[6])), math.sin(math.radians(self.points_degrees[6]))
+
+    mX1 *= middle_radius
+    mY1 *= middle_radius
+    mX2 *= middle_radius
+    mY2 *= middle_radius
+    middle1 = [mX1 + 400,mY1 + 400]
+    middle2 = [mX2 + 400,mY2 + 400] 
+
+    # outer circle 
+    outer_radius = 205
+    oX1,oY1 = math.cos(math.radians(self.points_degrees[7])), math.sin(math.radians(self.points_degrees[7]))
+    oX2,oY2 = math.cos(math.radians(self.points_degrees[8])), math.sin(math.radians(self.points_degrees[8]))
+    oX3,oY3 = math.cos(math.radians(self.points_degrees[9])), math.sin(math.radians(self.points_degrees[9]))
+    oX4,oY4 = math.cos(math.radians(self.points_degrees[10])), math.sin(math.radians(self.points_degrees[10]))
+    oX5,oY5 = math.cos(math.radians(self.points_degrees[11])), math.sin(math.radians(self.points_degrees[11]))
+
+    oX1 *= outer_radius
+    oY1 *= outer_radius
+    oX2 *= outer_radius
+    oY2 *= outer_radius
+    oX3 *= outer_radius
+    oY3 *= outer_radius
+    oX4 *= outer_radius
+    oY4 *= outer_radius
+    oX5 *= outer_radius
+    oY5 *= outer_radius
+    outer1 = [oX1 + 400,oY1 + 400]
+    outer2 = [oX2 + 400,oY2 + 400]
+    outer3 = [oX3 + 400,oY3 + 400]
+    outer4 = [oX4 + 400,oY4 + 400]
+    outer5 = [oX5 + 400,oY5 + 400]
+
+    # SHAPES SEPARATOR ------------------------------------------------------------------------------------------------------------------------------------
+
+    # inner circle 2
+    inner_radius = 195
+    iX6,iY6 = math.cos(math.radians(self.points_degrees[12])), math.sin(math.radians(self.points_degrees[12]))
+    iX7,iY7 = math.cos(math.radians(self.points_degrees[13])), math.sin(math.radians(self.points_degrees[13]))
+    iX8,iY8 = math.cos(math.radians(self.points_degrees[14])), math.sin(math.radians(self.points_degrees[14]))
+    iX9,iY9 = math.cos(math.radians(self.points_degrees[15])), math.sin(math.radians(self.points_degrees[15]))
+    iX10,iY10 = math.cos(math.radians(self.points_degrees[16])), math.sin(math.radians(self.points_degrees[16]))
+
+    iX6 *= inner_radius
+    iY6 *= inner_radius
+    iX7 *= inner_radius
+    iY7 *= inner_radius
+    iX8 *= inner_radius
+    iY8 *= inner_radius
+    iX9 *= inner_radius
+    iY9 *= inner_radius
+    iX10 *= inner_radius
+    iY10 *= inner_radius
+    inner6 = [iX6 + 400,iY6 + 400]
+    inner7 = [iX7 + 400,iY7 + 400]
+    inner8 = [iX8 + 400,iY8 + 400]
+    inner9 = [iX9 + 400,iY9 + 400]
+    inner10 = [iX10 + 400,iY10 + 400]
+
+    # middle circle 2
+    middle_radius = 200
+    mX3,mY3 = math.cos(math.radians(self.points_degrees[17])), math.sin(math.radians(self.points_degrees[17]))
+    mX4,mY4 = math.cos(math.radians(self.points_degrees[18])), math.sin(math.radians(self.points_degrees[18]))
+
+    mX3 *= middle_radius
+    mY3 *= middle_radius
+    mX4 *= middle_radius
+    mY4 *= middle_radius
+    middle3 = [mX3 + 400,mY3 + 400]
+    middle4 = [mX4 + 400,mY4 + 400] 
+
+    # outer circle 2
+    outer_radius = 205
+    oX6,oY6 = math.cos(math.radians(self.points_degrees[19])), math.sin(math.radians(self.points_degrees[19]))
+    oX7,oY7 = math.cos(math.radians(self.points_degrees[20])), math.sin(math.radians(self.points_degrees[20]))
+    oX8,oY8 = math.cos(math.radians(self.points_degrees[21])), math.sin(math.radians(self.points_degrees[21]))
+    oX9,oY9 = math.cos(math.radians(self.points_degrees[22])), math.sin(math.radians(self.points_degrees[22]))
+    oX10,oY10 = math.cos(math.radians(self.points_degrees[23])), math.sin(math.radians(self.points_degrees[23]))
+
+    oX6 *= outer_radius
+    oY6 *= outer_radius
+    oX7 *= outer_radius
+    oY7 *= outer_radius
+    oX8 *= outer_radius
+    oY8 *= outer_radius
+    oX9 *= outer_radius
+    oY9 *= outer_radius
+    oX10 *= outer_radius
+    oY10 *= outer_radius
+    outer6 = [oX6 + 400,oY6 + 400]
+    outer7 = [oX7 + 400,oY7 + 400]
+    outer8 = [oX8 + 400,oY8 + 400]
+    outer9 = [oX9 + 400,oY9 + 400]
+    outer10 = [oX10 + 400,oY10 + 400]
+
+
+
+
+
+    for i in range(24):
+      self.points_degrees[i] += 0.1
+
+    # specific return order for drawing the shape 
+    return [middle1,inner1,inner2,inner3,inner4,inner5,middle2,outer5,outer4,outer3,outer2,outer1],[middle3,inner6,inner7,inner8,inner9,inner10,middle4,outer10,outer9,outer8,outer7,outer6]
