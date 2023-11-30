@@ -36,13 +36,31 @@ class board_class:
             elif try_put == -1:
                 if button.state == self.turn:
                     self.current_piece = button
+                    self.delete_highlights()
+                    self.highlight_options(button)
             # clicked on a piece that is empty, put piece down or do nothing
             elif try_put == 1:
                 if self.current_piece != '':
+                    self.delete_highlights()
                     if button.pos[0] in [self.current_piece.pos[0] - 1, self.current_piece.pos[0], self.current_piece.pos[0] + 1] and button.pos[1] in [self.current_piece.pos[1] - 1, self.current_piece.pos[1], self.current_piece.pos[1] + 1]:
                         self.change_piece_pos(button)
             elif try_put == 0: # either not clicked or already clicked this second 
                 pass
+    
+
+    def highlight_options(self,button):
+        for b in self.buttons:
+            if b.pos[0] in [button.pos[0] - 1, button.pos[0], button.pos[0] + 1] and b.pos[1] in [button.pos[1] - 1, button.pos[1], button.pos[1] + 1]:
+                if b.state == "":
+                    self.board_list[b.pos[0]][b.pos[1]] = "h"
+
+
+    def delete_highlights(self):
+        for x,row in enumerate(self.board_list):
+            for y,item in enumerate(row):
+                if item == "h":
+                    self.board_list[x][y] = ""
+
 
     def check_win(self):
         """Check if either player won the game"""
