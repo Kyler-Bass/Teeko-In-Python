@@ -279,11 +279,10 @@ class graphics_handler:
     outer10 = [oX10 + 400,oY10 + 400]
 
 
-
-
-
+    # move the points around by given degress
     for i in range(24):
       self.points_degrees[i] += 0.1
 
-    # specific return order for drawing the shape 
-    return [middle1,inner1,inner2,inner3,inner4,inner5,middle2,outer5,outer4,outer3,outer2,outer1],[middle3,inner6,inner7,inner8,inner9,inner10,middle4,outer10,outer9,outer8,outer7,outer6]
+    
+    # specific return order for drawing the shape, can make any shape 
+    return [middle2,inner5,inner4,outer3,inner2,inner1,middle1,outer1,outer2,inner3,outer4,outer5],[middle4,inner10,inner9,outer8,inner7,inner6,middle3,outer6,outer7,inner8,outer9,outer10]
