@@ -62,10 +62,6 @@ class board_class:
         # 1 = red wins
         # 2 = black wins
 
-
-        # testing
-        print(black_pieces)
-
         # black pieces win checks
         if len(black_pieces) < 4: # see if there are even 4 pieces, if not exit function 
             return 0

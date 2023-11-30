@@ -155,7 +155,7 @@ class graphics_handler:
     self.main_screen_surface.blit(self.instructions, (0,0))
 
   def get_points(self):
-
+    """return the 24 points of the two shapes creating the circling animation around the winner text"""
     # inner circle
     inner_radius = 195
     iX1,iY1 = math.cos(math.radians(self.points_degrees[0])), math.sin(math.radians(self.points_degrees[0]))
