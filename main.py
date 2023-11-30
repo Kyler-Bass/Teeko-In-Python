@@ -39,10 +39,7 @@ def main():
   # start menu
   while start_menu_running: 
         if exit_event_check():
-            gameRunning = False
-            gameover_screen = False
-            start_menu_running = False
-            instructions_running = False
+            return 0
         
         mouse_pos = pg.mouse.get_pos()
         mouse_pressed = pg.mouse.get_pressed()
@@ -60,10 +57,7 @@ def main():
   # instructions menu
   while instructions_running:
         if exit_event_check():
-            gameRunning = False
-            gameover_screen = False
-            start_menu_running = False
-            instructions_running = False
+            return 0
 
         mouse_pressed = pg.mouse.get_pressed()
         board_obj.graphics.instructions_menu()
@@ -82,8 +76,7 @@ def main():
   while gameRunning:
     # check if user presses exit (x in top right)
     if exit_event_check():
-        gameRunning = False
-        gameover_screen = False
+        return 0
 
     # check if someone won here
     win = board_obj.check_win()
@@ -113,7 +106,7 @@ def main():
   # gameover screen
   while gameover_screen:
     if exit_event_check():
-        gameover_screen = False
+        return 0
     board_obj.graphics.gameover(winner)
     window.update()
     window.flip()
