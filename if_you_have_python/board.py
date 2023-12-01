@@ -88,7 +88,7 @@ class board_class:
         if black_pieces[0][0] == black_pieces[1][0] == black_pieces[2][0] == black_pieces[3][0] and black_pieces[0][1] + 1 == black_pieces[1][1] and black_pieces[1][1] + 1 == black_pieces[2][1] and black_pieces[2][1] + 1 == black_pieces[3][1]: 
             return 2
         # vertical win - 4 in a column
-        elif black_pieces[0][1] == black_pieces[1][1] == black_pieces[2][1] == black_pieces[3][1]:
+        elif black_pieces[0][1] == black_pieces[1][1] == black_pieces[2][1] == black_pieces[3][1] and black_pieces[0][0] + 1 == black_pieces[1][0] and black_pieces[1][0] + 1 == black_pieces[2][0] and black_pieces[2][0] + 1 == black_pieces[3][0]:
             return 2
         # square win
         elif black_pieces[0][0] == black_pieces[1][0] and black_pieces[0][0] + 1 == black_pieces[2][0] and black_pieces[0][0] + 1 == black_pieces[3][0] and black_pieces[0][1] == black_pieces[2][1] and black_pieces[1][1] == black_pieces[3][1] and black_pieces[0][1] + 1 == black_pieces[1][1]:
@@ -109,7 +109,7 @@ class board_class:
         if red_pieces[0][0] == red_pieces[1][0] == red_pieces[2][0] == red_pieces[3][0] and red_pieces[0][1] + 1 == red_pieces[1][1] and red_pieces[1][1] + 1 == red_pieces[2][1] and red_pieces[2][1] + 1 == red_pieces[3][1]:
             return 1
         # vertical win - 4 in a column
-        elif red_pieces[0][1] == red_pieces[1][1] == red_pieces[2][1] == red_pieces[3][1]:
+        elif red_pieces[0][1] == red_pieces[1][1] == red_pieces[2][1] == red_pieces[3][1] and red_pieces[0][0] + 1 == red_pieces[1][0] and red_pieces[1][0] + 1 == red_pieces[2][0] and red_pieces[2][0] + 1 == red_pieces[3][0]:
             return 1
         # square win 
         elif red_pieces[0][0] == red_pieces[1][0] and red_pieces[0][0] + 1 == red_pieces[2][0] and red_pieces[0][0] + 1 == red_pieces[3][0] and red_pieces[0][1] == red_pieces[2][1] and red_pieces[1][1] == red_pieces[3][1] and red_pieces[0][1] + 1 == red_pieces[1][1]:
