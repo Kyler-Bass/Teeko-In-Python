@@ -7,7 +7,6 @@ from buttons import button_class
 # a manager class holding variables and functions and the objects for graphics and buttons 
 class board_class:
     def __init__(self, board_list, window, screen_surface):
-        # variables, objects, and lists 
         self.turn = "b" # "r" for red, "b" for black
         self.current_piece = '' # pos of current piece user is "holding" if they are holding one
         self.buttons = [] # list of all buttons 
@@ -44,23 +43,20 @@ class board_class:
                     self.delete_highlights()
                     if button.pos[0] in [self.current_piece.pos[0] - 1, self.current_piece.pos[0], self.current_piece.pos[0] + 1] and button.pos[1] in [self.current_piece.pos[1] - 1, self.current_piece.pos[1], self.current_piece.pos[1] + 1]:
                         self.change_piece_pos(button)
-            elif try_put == 0: # either not clicked or already clicked this second 
-                pass
-    
 
     def highlight_options(self,button):
+        """Highlight the options for moving the currently held piece"""
         for b in self.buttons:
             if b.pos[0] in [button.pos[0] - 1, button.pos[0], button.pos[0] + 1] and b.pos[1] in [button.pos[1] - 1, button.pos[1], button.pos[1] + 1]:
                 if b.state == "":
                     self.board_list[b.pos[0]][b.pos[1]] = "h"
 
-
     def delete_highlights(self):
+        """Remove the highlighted pieces from the screen"""
         for x,row in enumerate(self.board_list):
             for y,item in enumerate(row):
                 if item == "h":
                     self.board_list[x][y] = ""
-
 
     def check_win(self):
         """Check if either player won the game"""
@@ -100,7 +96,6 @@ class board_class:
         elif black_pieces[0][0] == black_pieces[1][0] - 1 == black_pieces[2][0] - 2 == black_pieces[3][0] - 3 and black_pieces[0][1] == black_pieces[1][1] + 1 == black_pieces[2][1] + 2 == black_pieces[3][1] + 3:
             return 2
 
-
         # red pieces win checks
         if len(red_pieces) < 4: # see if there are even 4 pieces, if not exit function 
             return 0
@@ -123,8 +118,6 @@ class board_class:
         # if no one won return 0
         else: 
             return 0
-
-        
 
     def change_piece_pos(self, button):
         """"target is the location of where currently held piece"""
