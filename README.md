@@ -5,11 +5,11 @@
 
 If you have Python and the module Pygame installed, use the **if_you_have_python** folder, and if you don't and don't want to install them, use the **if_you_don't_have_python** folder.
 
-## if_you_have_python:
+### if_you_have_python:
 
 1. Open **if_you_don't_have_python** in an IDE or in command prompt, and run `main.py`
 
-## if_you_don't_have_python:
+### if_you_don't_have_python:
 
 1. Open **if_you_don't_have_python/dist/main**
 2. Run `Teeko.exe`
