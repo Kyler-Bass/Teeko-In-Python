@@ -24,9 +24,13 @@ If you have Python and the module Pygame installed, use the **if_you_have_python
 
 ## How To Use Teeko:
 **1.** Teeko is a two-player game, and only pass and play is available in my version.
+
 **2.** The two different players are represented by colors: black and red. Black is the first player to play
+
 **3.** At the start, each player will take turns placing a piece onto the board (5x5) until each player has 4 pieces on the board
+
 **4.** When each player has 4 pieces on the board, players will then take their turns: where they will move one of their pieces to an adjacent circle with no piece on it.
+
 **5.** The game will end when one player's pieces are in any of the following configurations:
 - 4 in a row
 - 4 in a column
