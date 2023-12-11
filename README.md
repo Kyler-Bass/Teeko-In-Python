@@ -19,7 +19,7 @@ If you have Python and the module Pygame installed, use the **if_you_have_python
 ### Python:
 - Go to https://www.python.org, navigate to the downloads menu, choose the version you want and follow the instructions to download it
 
-### Pygame:
+### Pygame (after installing python, adding it to PATH and restarting computer):
 - Open command prompt and type in `pip3 install pygame`
 
 ## How To Use Teeko:
