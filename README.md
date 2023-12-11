@@ -12,7 +12,7 @@ If you have Python and the module Pygame installed, use the **if_you_have_python
 ## if_you_don't_have_python:
 
 1. Open **if_you_don't_have_python/dist/main**
-2. Run **Teeko.exe**
+2. Run `Teeko.exe`
 
 ## If you want to install Python or Pygame:
 
