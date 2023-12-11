@@ -3,7 +3,7 @@
   
 ## How to Run Teeko:
 
-If you have Python and the module Pygame, use the **if_you_have_python** folder, and if you don't and don't want to install it, use the **if_you_don't_have_python** folder.
+If you have Python and the module Pygame installed, use the **if_you_have_python** folder, and if you don't and don't want to install them, use the **if_you_don't_have_python** folder.
 
 ## if_you_have_python:
 
